@@ -48,9 +48,11 @@ double osc(double dHertz, double dTime, int nType) {
 // Fucntion that makes the sound (in Hrz -> note A = 440 Hrz)
 double MakeNoise(double dTime) {
 
-	double dOutput = envelope.getAmplitude(dTime) * osc(dFrequencyOutput, dTime, 3);
+	double dOutput = envelope.getAmplitude(dTime) * 
+		(osc(dFrequencyOutput * 0.5, dTime, 3) + 
+		 osc(dFrequencyOutput * 1.0, dTime, 1));
 
-	return dOutput * 0.4; // 0.6 -> Master Volume
+	return dOutput * 0.2; // 0.6 -> Master Volume
 }
 
 
