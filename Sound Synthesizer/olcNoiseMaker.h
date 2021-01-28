@@ -80,7 +80,7 @@ public:
 		m_bReady = true;
 
 		m_thread = thread(&olcNoiseMaker::MainThread, this);
-
+		
 		// Start the ball rolling
 		unique_lock<mutex> lm(m_muxBlockNotZero);
 		m_cvBlockNotZero.notify_one();
